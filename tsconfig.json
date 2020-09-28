@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "react-native",
+    "lib": ["es6"],
+    "noEmit": true,
+    "target": "es6",
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "noUnusedLocals": false,
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "assets/*": ["./src/assets/*"],
+      "components/*": ["./src/components/*"],
+      "screens/*": ["./src/screens/*"],
+      "services/*": ["./src/services/*"],
+      "templates/*": ["./src/templates/*"],
+      "api/*": ["./src/api/*"]
+    }
+  },
+  "exclude": ["ios", "android", "aut-tests", "node_modules"],
+  "files.watcherExclude": {
+    "ios/**": true,
+    "android/**": true,
+    "node_modules/**": true
+  }
+}
