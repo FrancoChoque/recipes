@@ -48,15 +48,15 @@ export const LoggedInNavigation = () => (
 
 const Stack = createStackNavigator();
 export const LoggedOutNavigation = () => (
-  <Stack.Navigator initialRouteName="Welcome">
-    <Stack.Screen
-      name="Welcome"
-      component={WelcomeScreen}
-      options={{ headerShown: false }}
-    />
+  <Stack.Navigator initialRouteName="Login">
     <Stack.Screen
       name="Login"
       component={LoginScreen}
+      options={{ headerShown: false }}
+    />
+    <Stack.Screen
+      name="Welcome"
+      component={WelcomeScreen}
       options={{ headerShown: false }}
     />
   </Stack.Navigator>
