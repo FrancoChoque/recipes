@@ -8,19 +8,18 @@ export const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     resizeMode: 'cover',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  formContainer: {
-    alignItems: 'center',
     justifyContent: 'center',
-    width: '80%',
+    alignItems: 'center',
   },
   title: {
     fontSize: FONT_SIZES.extraLarge,
   },
+  subTitle: {
+    fontSize: FONT_SIZES.large,
+  },
   button: {
     opacity: 0.75,
-    width: '100%',
+    width: 200,
+    borderRadius: 10,
   },
 });

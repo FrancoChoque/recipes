@@ -6,6 +6,8 @@ export const styles = StyleSheet.create({
     height: 50,
     backgroundColor: COLORS.white,
     borderRadius: 15,
+    padding: 8,
+    width: '100%',
   },
   label: {
     paddingTop: 6,

@@ -6,12 +6,13 @@ import { COLORS, FONT_SIZES } from 'services/style';
 const getStyles = (props) =>
   StyleSheet.create({
     container: {
-      width: '100%',
+      minWidth: 150,
+      margin: 10,
+      borderRadius: 25,
     },
     button: {
       backgroundColor: props.backgroundColor || COLORS.primary,
       height: 48,
-      borderRadius: 25,
       elevation: 0,
       shadowOpacity: 0,
       borderColor: props.borderColor
