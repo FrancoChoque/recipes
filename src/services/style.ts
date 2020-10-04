@@ -9,8 +9,9 @@ export const COLORS = {
   fontPrimary: '#000000',
   title: '#353535',
   primary: '#FFD706',
-  gray: '#BBBBBB',
-  darkGray: '#7A7A7A',
+  lightGray: '#BBBBBB',
+  gray: '#7A7A7A',
+  darkGray: '#181818',
   link: '#EBFF00',
   error: '#EBFF00',
 };
@@ -18,6 +19,7 @@ export const COLORS = {
 export const FONT_SIZES = {
   medium: 16,
   large: 20,
+  title: 36,
   extraLarge: 42,
 };
 

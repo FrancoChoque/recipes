@@ -19,7 +19,7 @@ export const WelcomeScreen = ({ navigation }) => (
       <Button
         title="Start Cooking"
         containerStyle={styles.button}
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate('Login')}
       />
     </ImageBackground>
   </View>

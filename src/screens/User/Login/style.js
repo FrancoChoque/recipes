@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { FONT_SIZES } from 'services/style';
+import { COLORS, FONT_SIZES } from 'services/style';
 
 export const styles = StyleSheet.create({
   container: {
@@ -18,6 +18,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: FONT_SIZES.extraLarge,
+    color: COLORS.white,
   },
   button: {
     opacity: 0.75,

@@ -6,8 +6,8 @@ import { SearchScreen } from 'screens/Search/Search';
 import { FavoritesScreen } from 'screens/Favorites/Favorites';
 import { ProfileScreen } from 'screens/Profile/Profile';
 import { WelcomeScreen } from 'screens/Welcome/Welcome';
-import { LoginScreen } from 'screens/User/Login/Login';
-import { HomeScreen } from 'screens/Home/Home';
+import LoginScreen from 'screens/User/Login/Login';
+import HomeScreen from 'screens/Home/Home';
 
 const Tab = createBottomTabNavigator();
 
@@ -39,7 +39,7 @@ export const LoggedInNavigation = () => (
       activeTintColor: 'tomato',
       inactiveTintColor: 'gray',
     }}>
-    <Tab.Screen name="Search" component={HomeScreen} />
+    <Tab.Screen name="Home" component={HomeScreen} />
     <Tab.Screen name="Search" component={SearchScreen} />
     <Tab.Screen name="Favorites" component={FavoritesScreen} />
     <Tab.Screen name="Profile" component={ProfileScreen} />
@@ -48,7 +48,7 @@ export const LoggedInNavigation = () => (
 
 const Stack = createStackNavigator();
 export const LoggedOutNavigation = () => (
-  <Stack.Navigator initialRouteName="Login">
+  <Stack.Navigator initialRouteName="Welcome">
     <Stack.Screen
       name="Login"
       component={LoginScreen}

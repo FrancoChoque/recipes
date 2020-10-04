@@ -5,10 +5,10 @@ import { COLORS, FONT_SIZES } from 'services/style';
 const styles = StyleSheet.create({
   text: {
     fontSize: FONT_SIZES.medium,
-    color: COLORS.white,
+    color: COLORS.fontPrimary,
   },
   bold: {
-    color: COLORS.white,
+    color: COLORS.darkGray,
     fontWeight: 'bold',
   },
   link: {

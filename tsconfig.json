@@ -18,7 +18,8 @@
       "assets/*": ["./src/assets/*"],
       "components/*": ["./src/components/*"],
       "screens/*": ["./src/screens/*"],
-      "services/*": ["./src/services/*"]
+      "services/*": ["./src/services/*"],
+      "store/*": ["./src/store/*"]
     }
   },
   "exclude": ["ios", "android", "aut-tests", "node_modules"],

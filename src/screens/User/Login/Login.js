@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ImageBackground, View } from 'react-native';
+import { connect } from 'react-redux';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scrollview';
 import { Formik } from 'formik';
 import background from 'assets/images/background.jpg';
@@ -9,8 +10,17 @@ import { Input } from 'components/Input';
 import { Text } from 'components/Text';
 import { styles } from './style';
 import { Overlay } from 'components/Overlay';
+import { login } from 'store/auth/reducer';
 
-export const LoginScreen = ({ navigation }) => {
+const hardCodedUser = {
+  name: 'Shubhda Sharma',
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  loginAction: () => dispatch(login(hardCodedUser)),
+});
+
+const LoginScreen = ({ loginAction, navigation }) => {
   const [rememberPass, setRememberPass] = useState(false);
   return (
     <View style={styles.container}>
@@ -25,7 +35,7 @@ export const LoginScreen = ({ navigation }) => {
           </Text>
           <Formik
             initialValues={{ email: '', password: '' }}
-            onSubmit={(values) => navigation.navigate('Welcome')}>
+            onSubmit={(values) => loginAction()}>
             {({ handleChange, handleBlur, handleSubmit, values }) => (
               <View style={styles.formContainer}>
                 <Input
@@ -64,3 +74,5 @@ export const LoginScreen = ({ navigation }) => {
     </View>
   );
 };
+
+export default connect(null, mapDispatchToProps)(LoginScreen);

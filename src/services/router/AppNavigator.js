@@ -1,9 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
-import { LoggedOutNavigation } from './routes';
+import { LoggedInNavigation, LoggedOutNavigation } from './routes';
 
-export const AppNavigator = () => (
+const mapStateToProps = ({ authReducer }) => ({
+  user: authReducer.user,
+});
+
+const AppNavigator = ({ user }) => (
   <NavigationContainer>
-    <LoggedOutNavigation />
+    {user ? <LoggedInNavigation /> : <LoggedOutNavigation />}
   </NavigationContainer>
 );
+
+export default connect(mapStateToProps)(AppNavigator);
