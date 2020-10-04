@@ -17,8 +17,9 @@ export const COLORS = {
 };
 
 export const FONT_SIZES = {
-  medium: 16,
-  large: 20,
+  medium: 14,
+  large: 18,
+  veryLarge: 24,
   title: 36,
   extraLarge: 42,
 };

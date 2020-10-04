@@ -1,20 +1,21 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
 
 const initialState = {
-  favorites: [],
+  recommended: [],
   recentlyViewed: [],
   newRecipes: [],
   recipes: [],
 };
 
-export const favorites = createAction('FAVORITES');
+export const recommended = createAction('RECOMMENDED');
 export const recentlyViewed = createAction('RECENTLY_VIEWED');
 export const newRecipes = createAction('NEW_RECIPES');
 export const recipes = createAction('RECIPES');
+export const recipe = createAction('RECIPES');
 
 export const recipesReducer = createReducer(initialState, {
-  [favorites]: (state, action) => {
-    state.favorites = action.payload;
+  [recommended]: (state, action) => {
+    state.recommended = action.payload;
   },
   [recentlyViewed]: (state, action) => {
     state.recentlyViewed = action.payload;
@@ -23,6 +24,9 @@ export const recipesReducer = createReducer(initialState, {
     state.newRecipes = action.payload;
   },
   [recipes]: (state, action) => {
+    state.recipes = action.payload;
+  },
+  [recipe]: (state, action) => {
     state.recipes = action.payload;
   },
 });

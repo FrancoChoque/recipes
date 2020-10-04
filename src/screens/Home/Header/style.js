@@ -3,7 +3,8 @@ import { COLORS, FONT_SIZES } from 'services/style';
 
 export const style = StyleSheet.create({
   container: {
-    marginTop: 10,
+    margin: 10,
+    paddingHorizontal: 20,
   },
   title: {
     fontSize: FONT_SIZES.title,

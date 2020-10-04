@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { defaultLateralPadding, SCREEN_WIDTH } from 'services/style';
 
 const getRowStyle = (
@@ -7,21 +7,21 @@ const getRowStyle = (
   marginTop,
   marginBottom,
   backgroundColor,
-) => ({
-  width: SCREEN_WIDTH,
-  flexDirection: 'row',
-  justifyContent,
-  flexWrap: 'wrap',
-  marginTop,
-  marginBottom,
-  backgroundColor,
-  alignItems: 'center',
-  ...defaultLateralPadding,
-});
+) =>
+  StyleSheet.create({
+    row: {
+      width: SCREEN_WIDTH,
+      flexDirection: 'row',
+      justifyContent,
+      flexWrap: 'wrap',
+      marginTop,
+      marginBottom,
+      backgroundColor,
+      alignItems: 'center',
+      ...defaultLateralPadding,
+    },
+  });
 
-/**
- * @deprecated use stylesheet instead
- */
 export const Row = ({
   children,
   justifyContent,
@@ -32,7 +32,7 @@ export const Row = ({
 }) => (
   <View
     style={[
-      getRowStyle(justifyContent, marginTop, marginBottom, backgroundColor),
+      getRowStyle(justifyContent, marginTop, marginBottom, backgroundColor).row,
       style,
     ]}>
     {children}

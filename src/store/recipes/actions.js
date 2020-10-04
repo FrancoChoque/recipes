@@ -1,6 +1,6 @@
 import { getRecipeService, getRecipesService } from 'services/api/recipes';
 import { startLoading, stopLoading } from 'store/ui/reducer';
-import { recipes } from './reducer';
+import { recipes, recommended } from './reducer';
 
 export const getRecentlyViewed = () => (dispatch) => {
   dispatch(startLoading());
@@ -33,7 +33,9 @@ export const getRecipes = () => async (dispatch) => {
     const recipePromiseRes = await Promise.all(
       recipesRes.data.recipes.map((each) => getRecipeService(each.id)),
     );
-    dispatch(recipes(recipePromiseRes.map((each) => each.data)));
+    const recipesFinal = recipePromiseRes.map((each) => each.data);
+    dispatch(recipes(recipesFinal));
+    dispatch(recommended(recipesFinal.slice(0, 2)));
     dispatch(stopLoading());
   } catch (error) {
     console.dir(error);

@@ -8,6 +8,8 @@ import { ProfileScreen } from 'screens/Profile/Profile';
 import { WelcomeScreen } from 'screens/Welcome/Welcome';
 import LoginScreen from 'screens/User/Login/Login';
 import HomeScreen from 'screens/Home/Home';
+import RecipeScreen from 'screens/Recipe/Recipe';
+import InstructionsScreen from 'screens/Recipe/Instructions/Instructions';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,13 +17,13 @@ function getIconName(iconName, focused) {
   return focused ? iconName : `${iconName}-outline`;
 }
 
-export const LoggedInNavigation = () => (
+const HomeTabs = () => (
   <Tab.Navigator
     screenOptions={({ route }) => ({
       tabBarIcon: ({ focused, color, size }) => {
         let iconName;
 
-        if (route.name === 'Home') {
+        if (route.name === 'Feed') {
           iconName = getIconName('home', focused);
         } else if (route.name === 'Search') {
           iconName = getIconName('search', focused);
@@ -39,11 +41,33 @@ export const LoggedInNavigation = () => (
       activeTintColor: 'tomato',
       inactiveTintColor: 'gray',
     }}>
-    <Tab.Screen name="Home" component={HomeScreen} />
+    <Tab.Screen name="Feed" component={HomeScreen} />
     <Tab.Screen name="Search" component={SearchScreen} />
     <Tab.Screen name="Favorites" component={FavoritesScreen} />
     <Tab.Screen name="Profile" component={ProfileScreen} />
   </Tab.Navigator>
+);
+
+const LoggedStack = createStackNavigator();
+
+export const LoggedInNavigation = () => (
+  <LoggedStack.Navigator initialRouteName="Home">
+    <LoggedStack.Screen
+      component={RecipeScreen}
+      name="Recipe"
+      options={{ headerShown: false }}
+    />
+    <LoggedStack.Screen
+      component={InstructionsScreen}
+      name="Instructions"
+      options={{ headerShown: false }}
+    />
+    <LoggedStack.Screen
+      component={HomeTabs}
+      name="Home"
+      options={{ headerShown: false }}
+    />
+  </LoggedStack.Navigator>
 );
 
 const Stack = createStackNavigator();

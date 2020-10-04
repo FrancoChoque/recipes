@@ -7,6 +7,7 @@ export const style = StyleSheet.create({
     backgroundColor: COLORS.white,
     flexDirection: 'column',
     paddingTop: 20,
-    paddingHorizontal: 20,
+    paddingEnd: 10,
+    paddingRight: 20,
   },
 });

@@ -4,9 +4,12 @@ import { View } from 'react-native';
 import { getRecipes } from 'store/recipes/actions';
 import Header from './Header/Header';
 import { style } from './style';
+import RecipesList from 'components/RecipesList/RecipesList';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const mapStateToProps = ({ recipesReducer }) => ({
   recipes: recipesReducer.recipes,
+  recommended: recipesReducer.recommended,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -16,14 +19,18 @@ const mapDispatchToProps = (dispatch) => ({
 class HomeScreen extends Component {
   componentDidMount() {
     const { getRecipesAction } = this.props;
-    // getRecipesAction();
+    getRecipesAction();
   }
 
   render() {
+    const { recipes, recommended } = this.props;
     return (
-      <View style={style.container}>
+      <ScrollView style={style.container}>
         <Header />
-      </View>
+        <RecipesList title="Recently Viewed" recipes={recipes} small />
+        <RecipesList title="Recommended" recipes={recommended} />
+        <RecipesList title="My recipes" recipes={recipes} />
+      </ScrollView>
     );
   }
 }
